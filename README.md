@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- CAPSULE RENDER: 상단 웨이브 배너 -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,100:00ff41&height=200&section=header&text=PLAYER_01&fontSize=60&fontColor=00ff41&fontAlignY=38&desc=HAS%20ENTERED%20THE%20GAME&descSize=18&descAlignY=58&descColor=00cc33&animation=fadeIn" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,100:00ff41&height=200&section=header&text=Developer_Life&fontSize=60&fontColor=00ff41&fontAlignY=38&desc=HAS%20ENTERED%20THE%20GAME&descSize=18&descAlignY=58&descColor=00cc33&animation=fadeIn" />
 
 <!-- TYPING SVG: 부팅 화면 타이핑 효과 -->
 <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=13&pause=1000&color=00FF41&background=0D111700&center=true&vCenter=true&width=600&height=60&lines=%E2%96%B6+LOADING+PLAYER+DATA...;%E2%96%B6+SYSTEM+BOOT+COMPLETE+%E2%9C%93;%E2%96%B6+WELCOME+TO+MY+PROFILE" alt="Typing SVG" />
@@ -52,8 +52,8 @@
 └─────────────────────────────────────────────────────────┘
 ```
 
-> 뱃지 예시: `![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)`
-> [shields.io](https://shields.io) 또는 [여기](https://github.com/Ileriayo/markdown-badges)에서 원하는 뱃지를 골라 추가하세요.
+<!-- > 뱃지 예시: `![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)`
+> [shields.io](https://shields.io) 또는 [여기](https://github.com/Ileriayo/markdown-badges)에서 원하는 뱃지를 골라 추가하세요. -->
 
 ---
 
@@ -73,8 +73,8 @@
 <div align="center">
 
 <!-- GITHUB STATS + TOP LANGUAGES -->
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=kinetas&show_icons=true&theme=chartreuse-dark&hide_border=true&bg_color=0d1117&title_color=00ff41&icon_color=00ff41&text_color=cccccc&include_all_commits=true&count_private=true" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kinetas&layout=compact&theme=chartreuse-dark&hide_border=true&bg_color=0d1117&title_color=00ff41&text_color=cccccc" />
+<!-- <img height="165" src="https://github-readme-stats.vercel.app/api?username=kinetas&show_icons=true&theme=chartreuse-dark&hide_border=true&bg_color=0d1117&title_color=00ff41&icon_color=00ff41&text_color=cccccc&include_all_commits=true&count_private=true" /> -->
+<!-- <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kinetas&layout=compact&theme=chartreuse-dark&hide_border=true&bg_color=0d1117&title_color=00ff41&text_color=cccccc" /> -->
 
 <br><br>
 
