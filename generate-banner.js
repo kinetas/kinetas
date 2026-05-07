@@ -11,6 +11,7 @@ const FONT = {
   'G':["01111","10000","10000","10111","10001","10001","01111"],
   'H':["10001","10001","10001","11111","10001","10001","10001"],
   'I':["11111","00100","00100","00100","00100","00100","11111"],
+  'K':["10001","10010","10100","11000","10100","10010","10001"],
   'L':["10000","10000","10000","10000","10000","10000","11111"],
   'M':["10001","11011","10101","10001","10001","10001","10001"],
   'N':["10001","11001","10101","10011","10001","10001","10001"],
@@ -21,6 +22,9 @@ const FONT = {
   'T':["11111","00100","00100","00100","00100","00100","00100"],
   'U':["10001","10001","10001","10001","10001","10001","01110"],
   'V':["10001","10001","10001","10001","01010","01010","00100"],
+  'X':["10001","10001","01010","00100","01010","10001","10001"],
+  '[':["01110","01000","01000","01000","01000","01000","01110"],
+  ']':["01110","00010","00010","00010","00010","00010","01110"],
   '_':["00000","00000","00000","00000","00000","00000","11111"],
 };
 
@@ -205,3 +209,72 @@ ${hpBar}
 
 fs.writeFileSync('banner.svg', svg);
 console.log(`Generated banner.svg — ${mainPts.length} main pixels, ${subPts.length} sub pixels, ${drops.length} rain drops`);
+
+// ── FOOTER SVG ────────────────────────────────────────────
+const FW = 860, FH = 100;
+
+const FOOT_TEXT = 'EXIT GAME';
+const FSUB_TEXT = 'THANKS FOR VISITING';
+const FPX1 = 8, FG1 = 2;
+const FPX2 = 4, FG2 = 2;
+const footX = Math.round((FW - (FOOT_TEXT.length * (5*FPX1+FG1) - FG1)) / 2);
+const fsubX = Math.round((FW - (FSUB_TEXT.length * (5*FPX2+FG2) - FG2)) / 2);
+const FOOT_Y = 12;
+const FSUB_Y = 72;
+const footPts = getPixels(FOOT_TEXT, FPX1, FG1, footX, FOOT_Y);
+const fsubPts = getPixels(FSUB_TEXT, FPX2, FG2, fsubX, FSUB_Y);
+
+// Pixel divider line at top (alternating blocks)
+const dividerBlocks = [];
+for (let x = 0; x < FW; x += 10) {
+  if (Math.floor(x / 10) % 2 === 0) continue;
+  dividerBlocks.push(`<rect x="${x+1}" y="2" width="8" height="4" fill="#00ff41" opacity="0.35"/>`);
+}
+
+// Footer brackets (smaller)
+const fbrackets = [
+  ...bracketRects(BM, BM, 1, 1),
+  ...bracketRects(FW-BM-BPX, BM, -1, 1),
+  ...bracketRects(BM, FH-BM-BPX, 1, -1),
+  ...bracketRects(FW-BM-BPX, FH-BM-BPX, -1, -1),
+];
+
+const fScanlines = Array.from({length: Math.ceil(FH/2)}, (_, i) =>
+  `<rect x="0" y="${i*2}" width="${FW}" height="1" fill="#000" opacity="0.07"/>`
+).join('');
+
+const footRects = footPts.map(R).join('\n');
+const fsubRects = fsubPts.map(R).join('\n');
+
+const footerSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${FW}" height="${FH}" viewBox="0 0 ${FW} ${FH}">
+<defs>
+  <style>
+    .ft{animation:fg 3s ease-in-out infinite;}
+    @keyframes fg{
+      0%,100%{filter:drop-shadow(0 0 3px #00ff41) drop-shadow(0 0 5px #00ff41);}
+      50%{filter:drop-shadow(0 0 8px #00ff41) drop-shadow(0 0 16px #00ff41);}
+    }
+    .fc{animation:fc 1s steps(1) 0.5s infinite;}
+    @keyframes fc{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+  </style>
+</defs>
+
+<rect width="${FW}" height="${FH}" fill="#050a05"/>
+${fScanlines}
+${dividerBlocks.join('\n')}
+${fbrackets.map(([x,y,w,h]) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#00ff41" opacity="0.45"/>`).join('\n')}
+
+<g class="ft" fill="#00ff41">
+${footRects}
+</g>
+${footPts.map(p => `<rect x="${p.x+1}" y="${p.y+1}" width="2" height="2" fill="#c8ffd7" opacity="0.24"/>`).join('\n')}
+
+<g fill="#00d23c" opacity="0.7">
+${fsubRects}
+</g>
+
+<rect class="fc" x="${fsubX + FSUB_TEXT.length*(5*FPX2+FG2) + 4}" y="${FSUB_Y}" width="${FPX2-1}" height="${7*FPX2-1}" fill="#00ff41"/>
+</svg>`;
+
+fs.writeFileSync('footer.svg', footerSvg);
+console.log(`Generated footer.svg — ${footPts.length} main pixels, ${fsubPts.length} sub pixels`);

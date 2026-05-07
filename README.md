@@ -17,17 +17,19 @@
 
 ```
 ╔══════════════════════════════════════════════════════════╗
-║                   📋  PLAYER  PROFILE                   ║
+║  ▶  PLAYER_PROFILE.exe                       [ ONLINE ] ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
-║   NAME    ›  kinetas                                     ║
+║   ID      ›  kinetas                                     ║
 ║   CLASS   ›  [ Developer ]                               ║
-║   STATUS  ›  ██████████  ONLINE                          ║
+║   LVL     ›  ??   ░░░░░░░░░░░░░░░░   CALCULATING...     ║
 ║                                                          ║
-║   ABOUT   ›  <!--  자기소개 글 위치 -->                   ║
-║           ›  <!--  현재 하고 있는 것, 관심사 등 -->        ║
+║   HP      ›  ████████████████████   [ MAX ]              ║
+║   EXP     ›  ████████░░░░░░░░░░░░   GRINDING...         ║
 ║                                                          ║
-║   CONTACT ›  <!--  연락처 / 블로그 / 이메일 -->            ║
+║   BIO     ›  <!--  자기소개 한 줄  -->                   ║
+║   NOW     ›  <!--  현재 하고 있는 것 / 관심사  -->       ║
+║   CONTACT ›  <!--  연락처 / 블로그 / 이메일  -->         ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 ```
@@ -37,23 +39,35 @@
 ## ⚔️ SKILL TREE
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│  🗂️  LANGUAGES                                          │
-│  <!-- -->                                               │
-│                                                         │
-│  🛠️  FRAMEWORKS & LIBRARIES                             │
-│  <!--                                                   │
-│                                                         │
-│  🗄️  DATABASE & INFRA                                   │
-│  <!--                                                   │
-│                                                         │
-│  🔧  TOOLS                                              │
-│  <!--                                                   │
-└─────────────────────────────────────────────────────────┘
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║  ◈  LANGUAGES  ──────────────────────── [ acquired ]    ║
+║                                                          ║
+║     <!--  ex: Python · JavaScript · TypeScript · Go  --> ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  ◈  FRAMEWORKS & LIBRARIES  ─────────── [ equipped ]    ║
+║                                                          ║
+║     <!--  ex: React · Next.js · Django · FastAPI  -->    ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  ◈  DATABASE & INFRA  ───────────────── [ active  ]     ║
+║                                                          ║
+║     <!--  ex: MySQL · Redis · Docker · AWS  -->          ║
+║                                                          ║
+╠══════════════════════════════════════════════════════════╣
+║                                                          ║
+║  ◈  TOOLS  ──────────────────────────── [ mastered ]    ║
+║                                                          ║
+║     <!--  ex: Git · VS Code · Figma · Linux  -->         ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
 ```
 
-<!-- > 뱃지 예시: `![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)`
-> [shields.io](https://shields.io) 또는 [여기](https://github.com/Ileriayo/markdown-badges)에서 원하는 뱃지를 골라 추가하세요. -->
+<!-- 뱃지로 교체 시: `![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)`
+shields.io → https://shields.io  /  뱃지 모음 → https://github.com/Ileriayo/markdown-badges -->
 
 ---
 
@@ -98,8 +112,8 @@
 
 <div align="center">
 
-<!-- CAPSULE RENDER: 하단 웨이브 배너 -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00ff41,100:0d0d0d&height=120&section=footer&animation=fadeIn" />
+<!-- PIXEL ART: 하단 배너 -->
+<img src="footer.svg" width="860" />
 
 </div>
 
