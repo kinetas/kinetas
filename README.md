@@ -43,31 +43,34 @@
 ║                                                          ║
 ║  ◈  LANGUAGES  ──────────────────────── [ acquired ]    ║
 ║                                                          ║
-║     <!--  ex: Python · JavaScript · TypeScript · Go  --> ║
+║     Python · Java · C · C++ · C# · SQL                  ║
+║     JavaScript · HTML/CSS                               ║
 ║                                                          ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
 ║  ◈  FRAMEWORKS & LIBRARIES  ─────────── [ equipped ]    ║
 ║                                                          ║
-║     <!--  ex: React · Next.js · Django · FastAPI  -->    ║
+║     React · Node.js · Express                           ║
+║     Scikit-learn · Pandas · NumPy                       ║
 ║                                                          ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
 ║  ◈  DATABASE & INFRA  ───────────────── [ active  ]     ║
 ║                                                          ║
-║     <!--  ex: MySQL · Redis · Docker · AWS  -->          ║
+║     MySQL · PostgreSQL · ChromaDB                       ║
+║     Linux · Docker · Git · GitHub · GitHub Actions      ║
+║     AWS EC2 · RDS · S3                                  ║
 ║                                                          ║
 ╠══════════════════════════════════════════════════════════╣
 ║                                                          ║
-║  ◈  TOOLS  ──────────────────────────── [ mastered ]    ║
+║  ◈  TOOLS & ETC  ────────────────────── [ mastered ]    ║
 ║                                                          ║
-║     <!--  ex: Git · VS Code · Figma · Linux  -->         ║
+║     VS Code · cursor · Claude Code · LM Studio          ║
+║     JIRA · Slack · ERwin · draw.io                      ║
+║     MCP · MSA · Harness Engineering                     ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 ```
-
-<!-- 뱃지로 교체 시: `![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)`
-shields.io → https://shields.io  /  뱃지 모음 → https://github.com/Ileriayo/markdown-badges -->
 
 ---
 
