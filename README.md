@@ -4,7 +4,7 @@
 <img src="banner.svg" width="860" />
 
 <!-- TYPING SVG: 부팅 화면 타이핑 효과 -->
-<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=13&pause=1000&color=00FF41&background=0D111700&center=true&vCenter=true&width=600&height=60&lines=%E2%96%B6+LOADING+PLAYER+DATA...;%E2%96%B6+SYSTEM+BOOT+COMPLETE+%E2%9C%93;%E2%96%B6+WELCOME+TO+MY+PROFILE" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=13&pause=1000&color=00FF41&background=0D111700&center=true&vCenter=true&width=600&height=60&lines=%E2%96%B6+LOADING+DEVELOPER+DATA...;%E2%96%B6+SYSTEM+BOOT+COMPLETE+%E2%9C%93;%E2%96%B6+WELCOME+TO+MY+PROFILE" alt="Typing SVG" />
 
 <!-- PROFILE VIEWS: 방문자 카운터 -->
 <img src="https://komarev.com/ghpvc/?username=kinetas&style=for-the-badge&color=00ff41&label=VISITORS" />
@@ -15,62 +15,25 @@
 
 ---
 
-```
-╔══════════════════════════════════════════════════════════╗
-║  ▶  PLAYER_PROFILE.exe                       [ ONLINE ] ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║   ID      ›  kinetas                                     ║
-║   CLASS   ›  [ Developer ]                               ║
-║   LVL     ›  26   ░░░░░░░░░░░░░░░░   CALCULATING...      ║
-║                                                          ║
-║   HP      ›  ████████████████████   [ MAX ]              ║
-║   EXP     ›  █████░░░░░░░░░░░   GRINDING...               ║
-║                                                          ║
-║   BIO     ›  Dev Ops, Architecture                       ║
-║   NOW     ›  AI agent, LLM                               ║
-║   CONTACT ›  kinetas7308@gmail.com                        ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-```
+<div align="center">
+
+<img src="player-profile.svg" width="860" />
+
+<br>
+
+<a href="mailto:kinetas7308@gmail.com"><img src="mail-badge.svg" /></a>
+&nbsp;&nbsp;
+<a href="https://kinetas.github.io/portfolio/"><img src="portfolio-badge.svg" /></a>
+
+</div>
 
 ---
 
-## ⚔️ SKILL TREE
+<div align="center">
 
-```
-╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║  ◈  LANGUAGES  ──────────────────────── [ acquired ]    ║
-║                                                          ║
-║     Python · Java · C · C++ · C# · SQL                  ║
-║     JavaScript · HTML/CSS                               ║
-║                                                          ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  ◈  FRAMEWORKS & LIBRARIES  ─────────── [ equipped ]    ║
-║                                                          ║
-║     React · Node.js · Express                           ║
-║     Scikit-learn · Pandas · NumPy                       ║
-║                                                          ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  ◈  DATABASE & INFRA  ───────────────── [ active  ]     ║
-║                                                          ║
-║     MySQL · PostgreSQL · ChromaDB                       ║
-║     Linux · Docker · Git · GitHub · GitHub Actions      ║
-║     AWS EC2 · RDS · S3                                  ║
-║                                                          ║
-╠══════════════════════════════════════════════════════════╣
-║                                                          ║
-║  ◈  TOOLS & ETC  ────────────────────── [ mastered ]    ║
-║                                                          ║
-║     VS Code · cursor · Claude Code · LM Studio          ║
-║     JIRA · Slack · ERwin · draw.io                      ║
-║     MCP · MSA · Harness Engineering                     ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-```
+<img src="skill-tree.svg" width="860" />
+
+</div>
 
 ---
 
