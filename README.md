@@ -22,14 +22,14 @@
 ║                                                          ║
 ║   ID      ›  kinetas                                     ║
 ║   CLASS   ›  [ Developer ]                               ║
-║   LVL     ›  ??   ░░░░░░░░░░░░░░░░   CALCULATING...     ║
+║   LVL     ›  26   ░░░░░░░░░░░░░░░░   CALCULATING...      ║
 ║                                                          ║
 ║   HP      ›  ████████████████████   [ MAX ]              ║
-║   EXP     ›  ████████░░░░░░░░░░░░   GRINDING...         ║
+║   EXP     ›  █████░░░░░░░░░░░   GRINDING...               ║
 ║                                                          ║
-║   BIO     ›  <!--  자기소개 한 줄  -->                   ║
-║   NOW     ›  <!--  현재 하고 있는 것 / 관심사  -->       ║
-║   CONTACT ›  <!--  연락처 / 블로그 / 이메일  -->         ║
+║   BIO     ›  Dev Ops, Architecture                       ║
+║   NOW     ›  AI agent, LLM                               ║
+║   CONTACT ›  kinetas7308@gmail.com                        ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 ```
