@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Header / Banner Style Demo</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0d1117; color: #00ff41; font-family: 'Courier New', monospace; padding: 40px 20px; }
+  h1 { text-align: center; font-size: 14px; letter-spacing: 4px; color: #00ff41; margin-bottom: 8px; }
+  .subtitle { text-align: center; font-size: 10px; color: #00cc33; letter-spacing: 2px; margin-bottom: 50px; }
+
+  .style-block { margin-bottom: 60px; }
+  .style-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #00cc33;
+    margin-bottom: 12px;
+    padding-left: 4px;
+    border-left: 2px solid #00ff41;
+    padding-left: 10px;
+  }
+  canvas { display: block; width: 100%; border: 1px solid #1a2a1a; }
+</style>
+</head>
+<body>
+
+<h1>▶ HEADER / BANNER STYLE DEMO</h1>
+<p class="subtitle">DOT GRAPHIC VARIANTS — PICK YOUR STYLE</p>
+
+<!-- 1. Dot Grid -->
+<div class="style-block">
+  <div class="style-label">01 › DOT GRID — 균일 격자 점 배열 (미니멀 테크)</div>
+  <canvas id="c1" height="160"></canvas>
+</div>
+
+<!-- 2. Halftone -->
+<div class="style-block">
+  <div class="style-label">02 › HALFTONE — 크기 변화 점 음영 (레트로 팝아트)</div>
+  <canvas id="c2" height="160"></canvas>
+</div>
+
+<!-- 3. Pixel Art -->
+<div class="style-block">
+  <div class="style-label">03 › PIXEL ART — 픽셀 블록 텍스트 (게임 복고)</div>
+  <canvas id="c3" height="200"></canvas>
+</div>
+
+<!-- 4. Dot Constellation -->
+<div class="style-block">
+  <div class="style-label">04 › CONSTELLATION — 점 + 연결선 (우주 모던)</div>
+  <canvas id="c4" height="160"></canvas>
+</div>
+
+<!-- 5. Perlin Noise Dots -->
+<div class="style-block">
+  <div class="style-label">05 › NOISE DOTS — 유기적 노이즈 분포 (아트)</div>
+  <canvas id="c5" height="160"></canvas>
+</div>
+
+<!-- 6. Dot Matrix LED -->
+<div class="style-block">
+  <div class="style-label">06 › DOT MATRIX — LED 전광판 스크롤 (사이버펑크)</div>
+  <canvas id="c6" height="160"></canvas>
+</div>
+
+<!-- 7. Radial Dots -->
+<div class="style-block">
+  <div class="style-label">07 › RADIAL DOTS — 방사형 점 폭발 (역동적)</div>
+  <canvas id="c7" height="160"></canvas>
+</div>
+
+<script>
+function initCanvas(id) {
+  const c = document.getElementById(id);
+  c.width = c.parentElement.clientWidth;
+  return c.getContext('2d');
+}
+
+/* ── 01. DOT GRID ─────────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c1');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#0d1117';
+  ctx.fillRect(0, 0, W, H);
+
+  const spacing = 18, r = 1.8;
+  for (let x = spacing; x < W; x += spacing) {
+    for (let y = spacing; y < H; y += spacing) {
+      const dx = x - W/2, dy = y - H/2;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const alpha = Math.max(0.05, 1 - dist / (W * 0.6));
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,255,65,${alpha})`;
+      ctx.fill();
+    }
+  }
+
+  ctx.font = 'bold 36px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = 'rgba(0,255,65,0.12)';
+  ctx.fillText('DEVELOPER_LIFE', W/2 + 2, H/2 + 2);
+  ctx.fillStyle = '#00ff41';
+  ctx.fillText('DEVELOPER_LIFE', W/2, H/2);
+})();
+
+/* ── 02. HALFTONE ──────────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c2');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#0d1117';
+  ctx.fillRect(0, 0, W, H);
+
+  const spacing = 14;
+  for (let x = 0; x < W; x += spacing) {
+    for (let y = 0; y < H; y += spacing) {
+      const wave1 = Math.sin(x * 0.03 + y * 0.02) * 0.5 + 0.5;
+      const wave2 = Math.cos(x * 0.015 - y * 0.04) * 0.5 + 0.5;
+      const val = (wave1 + wave2) / 2;
+      const radius = val * (spacing / 2 - 1);
+      if (radius < 0.5) continue;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,255,65,${0.3 + val * 0.7})`;
+      ctx.fill();
+    }
+  }
+
+  ctx.font = 'bold 38px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = 'rgba(0,30,10,0.8)';
+  ctx.fillText('DEVELOPER_LIFE', W/2, H/2);
+  ctx.fillStyle = '#00ff41';
+  ctx.shadowColor = '#00ff41';
+  ctx.shadowBlur = 12;
+  ctx.fillText('DEVELOPER_LIFE', W/2, H/2);
+  ctx.shadowBlur = 0;
+})();
+
+/* ── 03. PIXEL ART (animated) ──────────────────────────── */
+(function() {
+  const c = document.getElementById('c3');
+  c.width = c.parentElement.clientWidth;
+  const ctx = c.getContext('2d');
+  const W = c.width, H = c.height;
+
+  const FONT = {
+    ' ':["00000","00000","00000","00000","00000","00000","00000"],
+    'A':["01110","10001","10001","11111","10001","10001","10001"],
+    'B':["11110","10001","10001","11110","10001","10001","11110"],
+    'C':["01111","10000","10000","10000","10000","10000","01111"],
+    'D':["11110","10001","10001","10001","10001","10001","11110"],
+    'E':["11111","10000","10000","11110","10000","10000","11111"],
+    'F':["11111","10000","10000","11110","10000","10000","10000"],
+    'G':["01111","10000","10000","10111","10001","10001","01111"],
+    'H':["10001","10001","10001","11111","10001","10001","10001"],
+    'I':["11111","00100","00100","00100","00100","00100","11111"],
+    'L':["10000","10000","10000","10000","10000","10000","11111"],
+    'M':["10001","11011","10101","10001","10001","10001","10001"],
+    'N':["10001","11001","10101","10011","10001","10001","10001"],
+    'O':["01110","10001","10001","10001","10001","10001","01110"],
+    'P':["11110","10001","10001","11110","10000","10000","10000"],
+    'R':["11110","10001","10001","11110","10100","10010","10001"],
+    'S':["01111","10000","10000","01110","00001","00001","11110"],
+    'T':["11111","00100","00100","00100","00100","00100","00100"],
+    'U':["10001","10001","10001","10001","10001","10001","01110"],
+    'V':["10001","10001","10001","10001","01010","01010","00100"],
+    '_':["00000","00000","00000","00000","00000","00000","11111"],
+  };
+
+  function tW(text, px, gap) { return text.length * (5*px + gap) - gap; }
+
+  // Pre-compute pixel block positions for each text layer
+  function buildPixels(text, px, gap, startX, startY) {
+    const pts = [];
+    for (let ci = 0; ci < text.length; ci++) {
+      const rows = FONT[text[ci].toUpperCase()] || FONT[' '];
+      const ox = startX + ci * (5*px + gap);
+      for (let r = 0; r < 7; r++)
+        for (let col = 0; col < 5; col++)
+          if (rows[r][col] === '1')
+            pts.push({ x: ox + col*px, y: startY + r*px, row: r, px });
+    }
+    return pts;
+  }
+
+  const PX1=8, G1=2, mainText='DEVELOPER_LIFE', mainY=44;
+  const PX2=5, G2=2, subText='HAS ENTERED THE GAME', subY=118;
+  const mainX = Math.round((W - tW(mainText, PX1, G1)) / 2);
+  const subX  = Math.round((W - tW(subText,  PX2, G2)) / 2);
+  const mainPts = buildPixels(mainText, PX1, G1, mainX, mainY);
+  const subPts  = buildPixels(subText,  PX2, G2, subX,  subY);
+
+  // Corner bracket helper
+  const BPX=6, BM=BPX*2;
+  function bracket(bx, by, dx, dy) {
+    ctx.fillStyle = 'rgba(0,255,65,0.5)';
+    for (let i=0; i<5; i++) ctx.fillRect(bx+i*BPX*dx, by, BPX-1, BPX-1);
+    for (let j=1; j<4; j++) ctx.fillRect(bx, by+j*BPX*dy, BPX-1, BPX-1);
+  }
+
+  // ── Pixel rain drops ──────────────────────────────────
+  const DGRID = 14;
+  const drops = Array.from({length: 22}, () => ({
+    x: Math.floor(Math.random() * Math.floor(W/DGRID)) * DGRID,
+    y: Math.random() * H,
+    speed: 0.6 + Math.random() * 1.2,
+    trail: 3 + Math.floor(Math.random() * 3),
+    alpha: 0.1 + Math.random() * 0.2,
+  }));
+
+  // ── Glitch state ──────────────────────────────────────
+  let glitchCountdown = 100 + Math.random() * 150;
+  let glitchLife = 0;
+  let glitchShifts = [];   // [{minY, maxY, dx}]
+  let glitchNoise  = [];   // [{x, y, px, color}]
+
+  function triggerGlitch() {
+    glitchLife = 3 + Math.floor(Math.random() * 5);
+    glitchShifts = [];
+    glitchNoise  = [];
+    const kind = Math.random();
+    if (kind < 0.45) {
+      // Horizontal row shift
+      const rows = 1 + Math.floor(Math.random() * 3);
+      for (let i=0; i<rows; i++) {
+        const ry = mainY + Math.floor(Math.random()*7)*PX1;
+        glitchShifts.push({ minY:ry, maxY:ry+PX1, dx:(Math.random()<0.5?-1:1)*(3+Math.floor(Math.random()*10)) });
+      }
+    } else if (kind < 0.75) {
+      // Noise pixels over text
+      for (let i=0; i<10; i++) {
+        const p = mainPts[Math.floor(Math.random()*mainPts.length)];
+        glitchNoise.push({ x:p.x, y:p.y, px:PX1, color: Math.random()<0.5?'#ffffff':'#aaffaa' });
+      }
+    } else {
+      // Both
+      const ry = mainY + Math.floor(Math.random()*7)*PX1;
+      glitchShifts.push({ minY:ry, maxY:ry+PX1, dx:(Math.random()<0.5?-1:1)*(4+Math.floor(Math.random()*8)) });
+      for (let i=0; i<5; i++) {
+        const p = mainPts[Math.floor(Math.random()*mainPts.length)];
+        glitchNoise.push({ x:p.x, y:p.y, px:PX1, color:'#ccffcc' });
+      }
+    }
+  }
+
+  // ── Scanline sweep ────────────────────────────────────
+  let sweepY   = -10;
+  let sweepOn  = false;
+  let sweepWait = 120;
+
+  // ── Animation loop ────────────────────────────────────
+  let t = 0;
+  function draw() {
+    t++;
+    requestAnimationFrame(draw);
+
+    // Background
+    ctx.fillStyle = '#050a05';
+    ctx.fillRect(0, 0, W, H);
+
+    // Pixel rain
+    drops.forEach(d => {
+      d.y += d.speed;
+      if (d.y > H + DGRID * d.trail) {
+        d.y = -DGRID * d.trail;
+        d.x = Math.floor(Math.random()*Math.floor(W/DGRID))*DGRID;
+      }
+      for (let i=0; i<d.trail; i++) {
+        const ty = d.y - i*DGRID;
+        if (ty < 0 || ty > H) continue;
+        ctx.fillStyle = `rgba(0,255,65,${d.alpha*(1-i/d.trail)})`;
+        ctx.fillRect(d.x+1, ty+1, DGRID-2, DGRID-2);
+      }
+    });
+
+    // Glow breathing (sine pulse)
+    const glow = 4 + Math.sin(t * 0.035) * 2.5;
+
+    // Main text pixels
+    ctx.shadowColor = '#00ff41';
+    ctx.shadowBlur  = glow;
+    mainPts.forEach(p => {
+      const shift = glitchShifts.find(s => p.y >= s.minY && p.y < s.maxY);
+      const dx = shift ? shift.dx : 0;
+      ctx.fillStyle = '#00ff41';
+      ctx.fillRect(p.x+dx+1, p.y+1, p.px-2, p.px-2);
+      ctx.fillStyle = 'rgba(200,255,215,0.28)';
+      ctx.fillRect(p.x+dx+1, p.y+1, 2, 2);
+    });
+
+    // Glitch noise pixels
+    if (glitchNoise.length) {
+      glitchNoise.forEach(n => {
+        ctx.fillStyle = n.color;
+        ctx.shadowColor = n.color;
+        ctx.shadowBlur  = 10;
+        ctx.fillRect(n.x+1, n.y+1, n.px-2, n.px-2);
+      });
+    }
+
+    // Sub text
+    ctx.shadowColor = '#00ff41';
+    ctx.shadowBlur  = glow * 0.6;
+    subPts.forEach(p => {
+      ctx.fillStyle = 'rgba(0,210,60,0.85)';
+      ctx.fillRect(p.x+1, p.y+1, p.px-2, p.px-2);
+    });
+    ctx.shadowBlur = 0;
+
+    // Corner brackets
+    bracket(BM,          BM,           1,  1);
+    bracket(W-BM-BPX,    BM,          -1,  1);
+    bracket(BM,          H-BM-BPX,     1, -1);
+    bracket(W-BM-BPX,    H-BM-BPX,   -1, -1);
+
+    // Scanline sweep
+    if (!sweepOn) {
+      if (--sweepWait <= 0) { sweepOn=true; sweepY=-10; }
+    } else {
+      sweepY += 1.4;
+      const sg = ctx.createLinearGradient(0, sweepY-22, 0, sweepY+4);
+      sg.addColorStop(0,   'rgba(0,255,65,0)');
+      sg.addColorStop(0.6, 'rgba(0,255,65,0.05)');
+      sg.addColorStop(1,   'rgba(180,255,200,0.18)');
+      ctx.fillStyle = sg;
+      ctx.fillRect(0, sweepY-22, W, 26);
+      if (sweepY > H+20) { sweepOn=false; sweepWait=160+Math.random()*100; }
+    }
+
+    // HP bar
+    const barX=W-196, barY=H-18;
+    ctx.fillStyle='rgba(0,255,65,0.4)';
+    ctx.font='9px "Courier New"'; ctx.textAlign='left';
+    ctx.fillText('LIFE', barX, barY);
+    for (let i=0; i<8; i++) {
+      ctx.fillStyle = i<6 ? 'rgba(0,255,65,0.75)' : 'rgba(0,55,15,0.45)';
+      ctx.fillRect(barX+36+i*14, barY-9, 11, 9);
+    }
+
+    // CRT scanlines
+    ctx.globalAlpha=0.07; ctx.fillStyle='#000';
+    for (let y=0; y<H; y+=2) ctx.fillRect(0,y,W,1);
+    ctx.globalAlpha=1;
+
+    // Version tag
+    ctx.fillStyle='rgba(0,255,65,0.28)';
+    ctx.font='9px "Courier New"'; ctx.textAlign='left';
+    ctx.fillText('[ PIXEL ART HEADER v2.0 ]', 16, H-10);
+
+    // Glitch timer
+    if (glitchLife > 0) {
+      if (--glitchLife === 0) { glitchShifts=[]; glitchNoise=[]; glitchCountdown=80+Math.random()*160; }
+    } else if (--glitchCountdown <= 0) {
+      triggerGlitch();
+    }
+  }
+
+  draw();
+})();
+
+/* ── 04. CONSTELLATION ─────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c4');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#050e05';
+  ctx.fillRect(0, 0, W, H);
+
+  const dots = [];
+  for (let i = 0; i < 120; i++) {
+    dots.push({ x: Math.random() * W, y: Math.random() * H });
+  }
+
+  const maxDist = 90;
+  ctx.strokeStyle = 'rgba(0,255,65,0.12)';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i < dots.length; i++) {
+    for (let j = i + 1; j < dots.length; j++) {
+      const dx = dots[i].x - dots[j].x;
+      const dy = dots[i].y - dots[j].y;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < maxDist) {
+        ctx.globalAlpha = 1 - d / maxDist;
+        ctx.beginPath();
+        ctx.moveTo(dots[i].x, dots[i].y);
+        ctx.lineTo(dots[j].x, dots[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  dots.forEach(d => {
+    ctx.beginPath();
+    ctx.arc(d.x, d.y, 1.5, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(0,255,65,0.7)';
+    ctx.fill();
+  });
+
+  ctx.font = 'bold 36px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillStyle = 'rgba(0,255,65,0.15)';
+  ctx.fillText('DEVELOPER_LIFE', W/2 + 2, H/2 + 2);
+  ctx.shadowColor = '#00ff41';
+  ctx.shadowBlur = 20;
+  ctx.fillStyle = '#00ff41';
+  ctx.fillText('DEVELOPER_LIFE', W/2, H/2);
+  ctx.shadowBlur = 0;
+})();
+
+/* ── 05. NOISE DOTS ────────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c5');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#0d1117';
+  ctx.fillRect(0, 0, W, H);
+
+  // Simple pseudo-noise
+  function noise(x, y) {
+    const n = Math.sin(x * 127.1 + y * 311.7) * 43758.5453;
+    return n - Math.floor(n);
+  }
+  function smoothNoise(x, y) {
+    const ix = Math.floor(x), iy = Math.floor(y);
+    const fx = x - ix, fy = y - iy;
+    const ux = fx * fx * (3 - 2 * fx);
+    const uy = fy * fy * (3 - 2 * fy);
+    return (
+      noise(ix, iy) * (1-ux) * (1-uy) +
+      noise(ix+1, iy) * ux * (1-uy) +
+      noise(ix, iy+1) * (1-ux) * uy +
+      noise(ix+1, iy+1) * ux * uy
+    );
+  }
+
+  const spacing = 16;
+  for (let x = spacing/2; x < W; x += spacing) {
+    for (let y = spacing/2; y < H; y += spacing) {
+      const nx = x / W * 6, ny = y / H * 6;
+      const n = smoothNoise(nx, ny) * 0.5 + smoothNoise(nx*2, ny*2) * 0.35 + smoothNoise(nx*4, ny*4) * 0.15;
+      const r = n * (spacing * 0.5);
+      const alpha = 0.15 + n * 0.85;
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(0.5, r), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,255,65,${alpha})`;
+      ctx.fill();
+    }
+  }
+
+  ctx.font = 'bold 36px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = '#00ff41';
+  ctx.shadowBlur = 18;
+  ctx.fillStyle = '#00ff41';
+  ctx.fillText('DEVELOPER_LIFE', W/2, H/2);
+  ctx.shadowBlur = 0;
+})();
+
+/* ── 06. DOT MATRIX LED ────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c6');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#000a00';
+  ctx.fillRect(0, 0, W, H);
+
+  const dotR = 3, gap = 10;
+
+  // Background LED grid (all dim)
+  for (let x = gap; x < W; x += gap) {
+    for (let y = gap; y < H; y += gap) {
+      ctx.beginPath();
+      ctx.arc(x, y, dotR - 1, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0,40,0,0.8)';
+      ctx.fill();
+    }
+  }
+
+  // Render text to offscreen then light up LEDs
+  const off = document.createElement('canvas');
+  off.width = W; off.height = H;
+  const octx = off.getContext('2d');
+  octx.fillStyle = 'white';
+  octx.font = `bold 38px "Courier New"`;
+  octx.textAlign = 'center';
+  octx.textBaseline = 'middle';
+  octx.fillText('DEVELOPER_LIFE', W/2, H/2);
+
+  const imgData = octx.getImageData(0, 0, W, H);
+
+  for (let x = gap; x < W; x += gap) {
+    for (let y = gap; y < H; y += gap) {
+      const i = (y * W + x) * 4;
+      if (imgData.data[i + 3] > 64) {
+        // Lit LED
+        const grd = ctx.createRadialGradient(x, y, 0, x, y, dotR + 1);
+        grd.addColorStop(0, '#aaffaa');
+        grd.addColorStop(0.4, '#00ff41');
+        grd.addColorStop(1, 'rgba(0,80,20,0)');
+        ctx.beginPath();
+        ctx.arc(x, y, dotR + 1, 0, Math.PI * 2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(x, y, dotR - 1, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ff41';
+        ctx.shadowColor = '#00ff41';
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+  }
+
+  ctx.font = '10px "Courier New"';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = 'rgba(0,255,65,0.3)';
+  ctx.fillText('[ LED MATRIX DISPLAY v2.4 ]', 16, H - 14);
+})();
+
+/* ── 07. RADIAL DOTS ───────────────────────────────────── */
+(function() {
+  const ctx = initCanvas('c7');
+  const W = ctx.canvas.width, H = ctx.canvas.height;
+  ctx.fillStyle = '#0a0f0a';
+  ctx.fillRect(0, 0, W, H);
+
+  const cx = W / 2, cy = H / 2;
+  const rings = 10, dotsPerRing = 28;
+
+  for (let r = 0; r < rings; r++) {
+    const radius = (r + 1) * (Math.min(W, H) / 2.2 / rings);
+    const count = Math.round(dotsPerRing * (r + 1) / rings);
+    for (let i = 0; i < count; i++) {
+      const angle = (i / count) * Math.PI * 2;
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * radius;
+      const dotSize = Math.max(0.8, 3.5 - r * 0.25);
+      const alpha = Math.max(0.08, 1 - r / rings * 0.85);
+
+      ctx.beginPath();
+      ctx.arc(x, y, dotSize, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,255,65,${alpha})`;
+      ctx.shadowColor = '#00ff41';
+      ctx.shadowBlur = r < 3 ? 6 : 0;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  ctx.font = 'bold 36px "Courier New"';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = '#00ff41';
+  ctx.shadowBlur = 24;
+  ctx.fillStyle = '#00ff41';
+  ctx.fillText('DEVELOPER_LIFE', cx, cy);
+  ctx.shadowBlur = 0;
+})();
+</script>
+</body>
+</html>

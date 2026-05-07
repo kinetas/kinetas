@@ -1,7 +1,7 @@
 <div align="center">
 
-<!-- CAPSULE RENDER: 상단 웨이브 배너 -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d0d0d,100:00ff41&height=200&section=header&text=Developer_Life&fontSize=60&fontColor=00ff41&fontAlignY=38&desc=HAS%20ENTERED%20THE%20GAME&descSize=18&descAlignY=58&descColor=00cc33&animation=fadeIn" />
+<!-- PIXEL ART: 상단 배너 -->
+<img src="banner.svg" width="860" />
 
 <!-- TYPING SVG: 부팅 화면 타이핑 효과 -->
 <img src="https://readme-typing-svg.demolab.com?font=Press+Start+2P&size=13&pause=1000&color=00FF41&background=0D111700&center=true&vCenter=true&width=600&height=60&lines=%E2%96%B6+LOADING+PLAYER+DATA...;%E2%96%B6+SYSTEM+BOOT+COMPLETE+%E2%9C%93;%E2%96%B6+WELCOME+TO+MY+PROFILE" alt="Typing SVG" />
