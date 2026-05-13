@@ -1,3 +1,4 @@
+<!-- 라이트 모드 / 다크 모드 반영 -->
 <div align="center">
 
 <!-- PIXEL ART: 상단 배너 -->
