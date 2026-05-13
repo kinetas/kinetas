@@ -3,9 +3,9 @@
 
 <!-- PIXEL ART: 상단 배너 -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="banner.svg">
-  <source media="(prefers-color-scheme: light)" srcset="banner-light.svg">
-  <img src="banner.svg" width="860" />
+  <source media="(prefers-color-scheme: dark)" srcset="banner.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="banner-light.svg?v=2">
+  <img src="banner.svg?v=2" width="860" />
 </picture>
 
 <!-- TYPING SVG: 부팅 화면 타이핑 효과 -->
@@ -31,26 +31,26 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="player-profile.svg">
-  <source media="(prefers-color-scheme: light)" srcset="player-profile-light.svg">
-  <img src="player-profile.svg" width="860" />
+  <source media="(prefers-color-scheme: dark)" srcset="player-profile.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="player-profile-light.svg?v=2">
+  <img src="player-profile.svg?v=2" width="860" />
 </picture>
 
 <br>
 
 <a href="mailto:kinetas7308@gmail.com">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="mail-badge.svg">
-    <source media="(prefers-color-scheme: light)" srcset="mail-badge-light.svg">
-    <img src="mail-badge.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="mail-badge.svg?v=2">
+    <source media="(prefers-color-scheme: light)" srcset="mail-badge-light.svg?v=2">
+    <img src="mail-badge.svg?v=2" />
   </picture>
 </a>
 &nbsp;&nbsp;
 <a href="https://kinetas.github.io/portfolio/">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="portfolio-badge.svg">
-    <source media="(prefers-color-scheme: light)" srcset="portfolio-badge-light.svg">
-    <img src="portfolio-badge.svg" />
+    <source media="(prefers-color-scheme: dark)" srcset="portfolio-badge.svg?v=2">
+    <source media="(prefers-color-scheme: light)" srcset="portfolio-badge-light.svg?v=2">
+    <img src="portfolio-badge.svg?v=2" />
   </picture>
 </a>
 
@@ -61,9 +61,9 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="skill-tree.svg">
-  <source media="(prefers-color-scheme: light)" srcset="skill-tree-light.svg">
-  <img src="skill-tree.svg" width="860" />
+  <source media="(prefers-color-scheme: dark)" srcset="skill-tree.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="skill-tree-light.svg?v=2">
+  <img src="skill-tree.svg?v=2" width="860" />
 </picture>
 
 </div>
@@ -125,9 +125,9 @@
 
 <!-- PIXEL ART: 하단 배너 -->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="footer.svg">
-  <source media="(prefers-color-scheme: light)" srcset="footer-light.svg">
-  <img src="footer.svg" width="860" />
+  <source media="(prefers-color-scheme: dark)" srcset="footer.svg?v=2">
+  <source media="(prefers-color-scheme: light)" srcset="footer-light.svg?v=2">
+  <img src="footer.svg?v=2" width="860" />
 </picture>
 
 </div>
