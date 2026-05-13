@@ -474,10 +474,10 @@ function generateProfile(theme, suffix) {
   const rows = [
     { label: 'ID',    value: 'KINETAS' },
     { label: 'CLASS', value: 'DEVELOPER' },
-    { label: 'LVL',   value: '26   CALCULATING' },
-    { label: 'HP',    bar: { filled: 14, total: 14 }, tag: '[ MAX ]' },
+    { label: 'LVL',   value: '26' },
+    { label: 'WILL',    bar: { filled: 14, total: 14 }, tag: '[ MAX ]' },
     { label: 'EXP',   bar: { filled: 5,  total: 14 }, tag: 'GRINDING' },
-    { label: 'BIO',   value: 'DEVOPS   ARCHITECTURE' },
+    { label: 'BIO',   value: 'DEV_OPS   ARCHITECTURE' },
     { label: 'NOW',   value: 'AI AGENT   LLM' },
   ];
 
