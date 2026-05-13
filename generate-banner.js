@@ -476,7 +476,7 @@ function generateProfile(theme, suffix) {
     { label: 'CLASS', value: 'DEVELOPER' },
     { label: 'LVL',   value: '26' },
     { label: 'WILL',    bar: { filled: 14, total: 14 }, tag: '[ MAX ]' },
-    { label: 'EXP',   bar: { filled: 5,  total: 14 }, tag: 'GRINDING' },
+    { label: 'EXP',   bar: { filled: 5,  total: 14 }, tag: 'Growing' },
     { label: 'BIO',   value: 'DEV_OPS   ARCHITECTURE' },
     { label: 'NOW',   value: 'AI AGENT   LLM' },
   ];
