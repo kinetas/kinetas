@@ -1278,5 +1278,5 @@
 <rect x="767" y="157" width="12" height="9" fill="#00ff41" opacity="0.72"/>
 <rect x="782" y="157" width="12" height="9" fill="#003c0f" opacity="0.40"/>
 <rect x="797" y="157" width="12" height="9" fill="#003c0f" opacity="0.40"/>
-<text x="16" y="170" font-family="Courier New,monospace" font-size="9" fill="#00ff41" opacity="0.28">[ PIXEL ART HEADER v2.0 ]</text>
+<text x="35" y="165" font-family="Courier New,monospace" font-size="9" fill="#00ff41" opacity="0.28">[ PIXEL ART HEADER v2.0 ]</text>
 </svg>
